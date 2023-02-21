@@ -1,1 +1,53 @@
-<p>heroe works!</p>
+<mat-grid-list cols="1" *ngIf="!heroe else divHeroe">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #divHeroe>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px">
+        <div fxFlex="50">
+            <h1>{{ heroe.superhero }} - <small>{{ heroe.alter_ego }}</small></h1>
+            <mat-divider></mat-divider>
+            <img mat-card-image [src]="heroe | imagen" [alt]="heroe.id">
+        </div>
+        <div fxFlex="50">
+            <mat-list>
+                <div mat-subheader>Acerca de</div>
+                <mat-list-item>
+                    <mat-icon mat-list-icon>admin_panel_settings</mat-icon>
+                    <span mat-line>Nombre</span>
+                    <span mat-line>{{ heroe.superhero }}</span>
+                </mat-list-item>
+
+                <mat-list-item>
+                    <mat-icon mat-list-icon>accessibility_new</mat-icon>
+                    <span mat-line>Alter ego</span>
+                    <span mat-line>{{ heroe.alter_ego }}</span>
+                </mat-list-item>
+
+                <mat-list-item>
+                    <mat-icon mat-list-icon>account_circle</mat-icon>
+                    <span mat-line>Personaje</span>
+                    <span mat-line>{{ heroe.characters }}</span>
+                </mat-list-item>
+
+                <mat-list-item>
+                    <mat-icon mat-list-icon>local_library</mat-icon>
+                    <span mat-line>Editorial</span>
+                    <span mat-line>{{ heroe.publisher }}</span>
+                </mat-list-item>
+
+                <mat-list-item>
+                    <mat-icon mat-list-icon>emoji_events</mat-icon>
+                    <span mat-line>Primera aparición</span>
+                    <span mat-line>{{ heroe.first_appearance }}</span>
+                </mat-list-item>
+            </mat-list>
+            <mat-divider></mat-divider>
+            <button mat-button color="warn" routerLink="/heroes/listado">
+                Volver
+            </button>
+        </div>
+    </div>
+</ng-template>

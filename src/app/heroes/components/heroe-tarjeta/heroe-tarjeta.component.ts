@@ -8,6 +8,7 @@ import { Heroe } from '../../pages/interfaces/heroes.interface';
     `
       mat-card {
         margin-top: 20px;
+        min-height: 700px;
       }
     `,
   ],
